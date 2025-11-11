@@ -1,0 +1,46 @@
+#name: CI/CD - React-Typescript Vite
+#
+#on:
+#  push:
+#    branches: [main]
+#  pull_request:
+#    branches: [main]
+#
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      # 1️⃣ Клонування репозиторію
+#      - name: Checkout repository
+#        uses: actions/checkout@v4
+#
+#      # 2️⃣ Встановлення Node.js
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: 20
+#          cache: 'npm'
+#
+#      # 3️⃣ Встановлення залежностей
+#      - name: Install dependencies
+#        run: npm ci
+#
+#      # 4️⃣ Перевірка коду (опціонально)
+#      - name: Lint code
+#        run: npm run lint --if-present
+#
+#      # 5️⃣ Запуск тестів (опціонально)
+#      - name: Run tests
+#        run: npm test --if-present
+#
+#      # 6️⃣ Збірка Vite
+#      - name: Build project
+#        run: npm run build
+#
+#      # 7️⃣ (опціонально) Завантаження артефактів
+#      - name: Upload production build
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: vite-build
+#          path: dist
