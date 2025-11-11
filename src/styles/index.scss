@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply box-border;
+  }
+
+  html,
+  body {
+    @apply h-full w-full font-sans font-light bg-gray-100;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  #root {
+    @apply h-full;
+
+    main {
+      @apply h-full;
+    }
+  }
+
+  a {
+    @apply no-underline text-inherit outline-none;
+  }
+
+  :focus {
+    @apply outline outline-2 outline-offset-2;
+  }
+
+  button,
+  input,
+  textarea {
+    @apply font-sans outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none;
+  }
+
+  input:not([type="checkbox"]),
+  textarea,
+  .base-select-input > div {
+    @apply w-full px-[20px] py-[9px] rounded-[10px] border bg-gray-100
+    transition-colors duration-300 outline-transparent ease-in-out
+    active:bg-white placeholder-gray-600 text-sm hover:bg-white focus:bg-white;
+  }
+
+  input{
+    @apply disabled:bg-gray-50 disabled:hover:bg-gray-50 disabled:cursor-not-allowed
+  }
+
+  textarea {
+    @apply min-h-[120px];
+  }
+
+  .react-tel-input {
+    @apply border-none;
+    .form-control {
+      @apply w-full h-[48px] border rounded-[10px] bg-gray-100 hover:bg-white active:bg-white focus:bg-white;
+    }
+    .flag-dropdown {
+      @apply bg-gray-100 border-none;
+    }
+    .selected-flag {
+      @apply border;
+      @apply rounded-tl-[10px] rounded-tr-[0px] rounded-br-[0px] rounded-bl-[10px] #{!important};
+    }
+  }
+
+  input[type="checkbox"] {
+    @apply w-[20px] h-[20px] border rounded outline-0 appearance-none;
+    & + svg {
+      @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200 pointer-events-none;
+    }
+  }
+
+  .filter-table {
+    input {
+      @apply py-[5px];
+    }
+
+    .base-select-input {
+      & > div > div > div[data-value] {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+
+  nav,
+  footer,
+  header,
+  aside {
+    @apply block;
+  }
+
+  img {
+    @apply max-w-full w-full;
+  }
+
+  p {
+    @apply text-gray-600;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-black-500;
+  }
+
+  h1 {
+    @apply text-h1;
+  }
+
+  h2 {
+    @apply text-h2;
+  }
+
+  h3 {
+    @apply text-h3;
+  }
+
+  h4 {
+    @apply text-h4;
+  }
+
+  h5 {
+    @apply text-h5;
+  }
+
+  h6 {
+    @apply text-h6;
+  }
+
+  .border {
+    @apply border-gray-800;
+  }
+
+  .icon {
+    path,
+    rect,
+    circle {
+      @apply stroke-black-500 transition-colors duration-300;
+    }
+
+    &:hover {
+      path,
+      rect,
+      circle {
+        @apply stroke-primary-500;
+      }
+    }
+  }
+
+  .overlay-body {
+    overflow: hidden;
+  }
+
+  .-z-1 {
+    z-index: -1;
+  }
+  .list-underline {
+    @apply list-none;
+    li {
+      @apply list-none border-b pt-[15px] border-b-gray-800 overflow-hidden;
+    }
+  }
+
+  .fade-enter {
+    @apply opacity-0;
+  }
+  .fade-exit {
+    @apply opacity-100;
+  }
+  .fade-enter-active {
+    @apply opacity-100;
+  }
+  .fade-exit-active {
+    @apply opacity-0;
+  }
+  .fade-enter-active,
+  .fade-exit-active {
+    @apply transition-all duration-300;
+  }
+
+  .slide-right-enter {
+    transform: translateX(100%);
+  }
+  .slide-right-enter-active {
+    transform: translateX(0);
+    transition: transform 300ms ease-in-out;
+  }
+  .slide-right-exit {
+    transform: translateX(0);
+  }
+  .slide-right-exit-active {
+    transform: translateX(100%);
+    transition: transform 300ms ease-in-out;
+  }
+
+  .slide-left-enter {
+    transform: translateX(-100%);
+  }
+  .slide-left-enter-active {
+    transform: translateX(0);
+    transition: transform 300ms ease-in-out;
+  }
+  .slide-left-exit {
+    transform: translateX(0);
+  }
+  .slide-left-exit-active {
+    transform: translateX(-100%);
+    transition: transform 300ms ease-in-out;
+  }
+}
+
+@import url("components/_sidebar.scss");
+@import url("components/_flatpickr.scss");
+@import url("components/_base-select.scss");

@@ -1,0 +1,46 @@
+.sidebar-wrapper {
+  @apply fixed top-0 left-0 bottom-0 border-r border-gray-800 bg-white transition-all duration-200;
+
+  .sidebar-menu-wrapper {
+    @apply h-[60px] absolute top-[80px] w-full transition-all duration-200 pointer-events-none;
+  }
+
+  .sidebar-menu {
+    @apply px-[15px] py-[15px] h-[calc(100%-80px)];
+  }
+
+  .link {
+    @apply flex items-center w-full transition-all duration-150 cursor-pointer hover:text-primary-500;
+  }
+
+  .single-sidebar-menu {
+    path,
+    rect,
+    circle {
+      @apply stroke-black-500;
+    }
+    .menu-link {
+      @apply relative;
+
+      &:before {
+        content: "";
+        @apply absolute top-0 -left-[15px] bottom-0 w-[4px] bg-primary-500 transition-all duration-300 opacity-0 rounded-r-[4px];
+      }
+
+      &:hover {
+        &:before {
+          @apply opacity-100;
+        }
+      }
+
+      &:hover,
+      &.active {
+        path,
+        rect,
+        circle {
+          @apply stroke-primary-500;
+        }
+      }
+    }
+  }
+}
